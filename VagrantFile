@@ -1,4 +1,4 @@
- Vagrant.configure("2") do |config|
+Vagrant.configure("2") do |config|
   config.vm.box = "cent64"
   config.vm.box_url = "https://dl.dropbox.com/u/7225008/Vagrant/CentOS-6.3-x86_64-minimal.box" 
   config.vm.provision :shell, :inline => $BOOTSTRAP_SCRIPT # see below
@@ -6,15 +6,13 @@ end
 
 $BOOTSTRAP_SCRIPT = <<EOF
   set -e # Stop on any error
-  #export DEBIAN_FRONTEND=noninteractive
+  
 
-  #echo VAGRANT SETUP: DOING APT-GET STUFF...
-  # Install prereqs
-  #sudo apt-get update
-  #sudo apt-get install -y python-software-properties curl git
+  # Install a basic LAMP Stack
+  ./scripts/install_lamp.sh
 
   # Make vagrant automatically go to /vagrant when we ssh in.
-  #echo "cd /vagrant" | sudo tee -a ~vagrant/.profile
+  echo "cd /vagrant" | sudo tee -a ~vagrant/.profile
 
 
   echo VAGRANT IS READY.
