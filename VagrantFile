@@ -10,20 +10,22 @@ $BOOTSTRAP_SCRIPT = <<EOF
 
   # Install a basic LAMP Stack
   ./scripts/install_lamp.sh
+  
+  # Install git
+  echo Installing Git...
+  ./scripts/install_git.sh
+  echo Finished
+
+  # Install Python
+  echo Downlaoding and Installing Python3...
+  ./scripts/install_python3.sh
+  echo Finished
+  
+  
 
   # Make vagrant automatically go to /vagrant when we ssh in.
   echo "cd /vagrant" | sudo tee -a ~vagrant/.profile
   
-  echo DOWNLOADING PYTHON3
-  wget http://www.python.org/ftp/python/3.3.2/Python-3.3.2.tar.bz2
-  echo UNPACKING
-  tar jxvf Python-3.3.2.tar.bz2
-  cd Python-3.*
-  echo BUILDING AND INSTALLING
-  ./configure
-  make
-  sudo make install
-
-
+  
   echo VAGRANT IS READY.
 EOF
