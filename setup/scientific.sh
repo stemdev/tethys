@@ -40,9 +40,8 @@ sudo yum -y install libpng-devel
 sudo yum -y install freetyep-devel
 
 # matplotlib
-sudo yum -y install freetype-devel.x86_64 #freetype dep.
 wget https://downloads.sourceforge.net/project/matplotlib/matplotlib/matplotlib-1.3.1/matplotlib-1.3.1.tar.gz
-tar zxvf matplotlib-*
+tar zxf matplotlib-*
 cd matplotlib-*
 sudo python3 setup.py  build
 sudo python3 setup.py  install
