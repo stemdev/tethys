@@ -1,16 +1,14 @@
 #!/bin/bash
 
 # Install Apache
-sudo yum install httpd
+sudo yum -y install httpd.x86_64
 
 # Install MySQL
-sudo yum install mysql-server
-
-# Set root password for MySQL
-sudo /usr/bin/mysql_secure_installation
+sudo yum -y install mysql-server.x86_64
 
 # Install PHP
-sudo yum install php php-mysql
+sudo yum -y install php.x86_64
+sudo yum -y install php-mysql.x86_64
 
 # Set processes to run automatically when the server starts
 sudo chkconfig httpd on
@@ -19,3 +17,8 @@ sudo chkconfig mysqld on
 # Start Apache and MySQL
 sudo service httpd start
 sudo service mysqld start
+
+# Set root password for MySQL
+sudo /usr/bin/mysql_secure_installation
+
+
