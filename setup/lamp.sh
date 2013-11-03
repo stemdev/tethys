@@ -19,6 +19,5 @@ sudo service httpd start
 sudo service mysqld start
 
 # Set root password for MySQL
-sudo /usr/bin/mysql_secure_installation
-
+sudo /usr/bin/mysqladmin -u root password 'SampleDBPassword'
 

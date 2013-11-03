@@ -13,6 +13,5 @@ make
 sudo make install
 
 # clean up
+cd ..
 sudo rm -rf Python-3*
-
-

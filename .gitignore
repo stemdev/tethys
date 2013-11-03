@@ -1,3 +1,7 @@
 .vagrant
 .VagrantFile.swp
 .DS_Store
+
+# Apache Stuff
+error/
+icons/

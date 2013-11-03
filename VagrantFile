@@ -1,39 +1,20 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "centos64-x64-vbox43"
   config.vm.box_url = "https://puphpet.s3.amazonaws.com/centos64-x64-vbox43.box"
-  config.vm.synced_folder "./", "/var/www", id: "vagrant-root", :nfs => false
-  #config.vm.provision :shell, :inline => $BOOTSTRAP_SCRIPT # see below
-  config.vm.provision "shell", inline: "set -e" #stop on any error
-  #config.vm.provision "shell", path: "scripts/install_lamp.sh"
-  config.vm.provision "shell", path: "scripts/install_python3.sh"
-  config.vm.provision "shell", path: "scripts/install_scientific.sh"
+  #config.vm.synced_folder "./", "/var/www", id: "vagrant-root", :nfs => false
+
+  # For Apache
+  config.vm.network :forwarded_port, host: 80, guest: 80
+  
+  # Stop on any error
+  config.vm.provision "shell", inline: "set -e"
+  
+  config.vm.provision "shell", path: "setup/git.sh"
+  config.vm.provision "shell", path: "setup/install_lamp.sh"
+  
+  config.vm.provision "shell", path: "setup/python3.sh"
+  config.vm.provision "shell", path: "setup/scientific.sh"
+
+  config.vm.provision "shell", path: "setup/misc.sh"
+  config.vm.provision :shell, :inline => "echo VAGRANT IS READY."
 end
-
-$BOOTSTRAP_SCRIPT = <<EOF
-  set -e # Stop on any error
-  
-
-  # Install a basic LAMP Stack
-  ./scripts/install_lamp.sh
-  
-  # Install git
-  #echo Installing Git...
-  #./scripts/install_git.sh
-  #echo Finished
-
-  # Install Python
-  echo Downlaoding and Installing Python3...
-  ./scripts/install_python3.sh
-  echo Finished
-  
-  # Install Scientific Libraries: numpy, etc.
-  echo Installing scientific libraries...
-  ./scripts/install_scientific.sh
-  echo Finished
-
-  # Make vagrant automatically go to /vagrant when we ssh in.
-  echo "cd /vagrant" | sudo tee -a ~vagrant/.profile
-  
-  
-  echo VAGRANT IS READY.
-EOF
