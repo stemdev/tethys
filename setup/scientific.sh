@@ -30,7 +30,6 @@ sudo rm -rf nose-*
 git clone git://github.com/numpy/numpy.git numpy
 cd numpy
 sudo python3 setup.py build --fcompiler=gnu95
-udo yum -y install gcc-gfortran.x86_64d ..
 sudo rm -rf numpy
 
 # libpng
