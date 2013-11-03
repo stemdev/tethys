@@ -20,4 +20,3 @@ sudo service mysqld start
 
 # Set root password for MySQL
 sudo /usr/bin/mysqladmin -u root password 'SampleDBPassword'
-

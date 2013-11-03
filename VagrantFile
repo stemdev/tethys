@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
   #config.vm.synced_folder "./", "/var/www", id: "vagrant-root", :nfs => false
 
   # For Apache
-  config.vm.network :forwarded_port, host: 80, guest: 80
+  config.vm.network :forwarded_port, host: 4567, guest: 80
   
   # Stop on any error
   config.vm.provision "shell", inline: "set -e"
