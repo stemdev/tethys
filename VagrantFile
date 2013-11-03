@@ -21,7 +21,10 @@ $BOOTSTRAP_SCRIPT = <<EOF
   ./scripts/install_python3.sh
   echo Finished
   
-  
+  # Install Scientific Libraries: numpy, etc.
+  echo Installing scientific libraries...
+  ./scripts/install_scientific.sh
+  echo Finished
 
   # Make vagrant automatically go to /vagrant when we ssh in.
   echo "cd /vagrant" | sudo tee -a ~vagrant/.profile
