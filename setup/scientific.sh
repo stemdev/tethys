@@ -47,6 +47,6 @@ cd matplotlib-*
 sudo python3 setup.py  build
 sudo python3 setup.py  install
 cd ..
-sud rm -rf matplotlib-*
+sudo rm -rf matplotlib-*
 
 
