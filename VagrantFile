@@ -1,6 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "centos64-x64-vbox43"
   config.vm.box_url = "https://puphpet.s3.amazonaws.com/centos64-x64-vbox43.box"
+  config.vm.synced_folder "./", "/var/www", id: "vagrant-root", :nfs => false
   config.vm.provision :shell, :inline => $BOOTSTRAP_SCRIPT # see below
 end
 
