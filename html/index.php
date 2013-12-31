@@ -1,8 +1,12 @@
-<?PHP
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="utf-8">
+            <title>My Login</title>
+    </head>
+    <body>
+     
+    </body>
+</html>
 
-$n1 = rand(0,100);
-$n2 = rand(0,100);
 
-echo $n1 . '+' . $n2 . '=' . ($n1+$n2);
-
-?>
