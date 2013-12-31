@@ -3,6 +3,8 @@
 .DS_Store
 
 # Apache Stuff
-html/
 error/
 icons/
+
+# vim
+*.swp

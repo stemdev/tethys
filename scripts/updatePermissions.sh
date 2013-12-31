@@ -12,8 +12,6 @@ fi
 #sudo adduser $USER www-data
 sudo chown -R www-data:www-data ./html/
 
-sudo chmod -R 0777 ./html/index.php
-sudo chmod -R 0777 ./html/storage/
-sudo chmod -R 0775 ./html/application/
+sudo chmod -R 0777 ./html/*
 
 echo "Permissions Set"
