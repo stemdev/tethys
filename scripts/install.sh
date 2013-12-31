@@ -1,5 +1,6 @@
 #!/bin/bash
 
+curUser=$(whoami)
 mysqlTempPass="SampleDBPassword"
 
 # OS
@@ -20,15 +21,6 @@ sudo apt-get -y install curl libcurl3 libcurl3-dev php5-curl
 # Set MySQL root password
 mysqladmin -u root password $mysqlTempPass
 
-# Flag our Apache Modules
-sudo a2enmod proxy_http
-sudo a2enmod rewrite
-sudo a2enmod php5
-
-# Restart services
-sudo service apache2 restart
-sudo service mysql restart
-
 # Set user settings and install sample file
 if [[ $curUser=="vagrant" ]] ; then
     cd /vagrant
@@ -44,6 +36,16 @@ else
     sudo php ./scripts/updateApacheConfig.php
 fi
 
+./scripts/updatePermissions.sh
+
+# Flag our Apache Modules
+sudo a2enmod proxy_http
+sudo a2enmod rewrite
+sudo a2enmod php5
+
+# Restart services
+sudo service apache2 restart
+sudo service mysql restart
 
 echo "Installed Apache, MySQL, and PHP"
 
