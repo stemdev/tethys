@@ -6,7 +6,7 @@ if( isset($_POST['username'])){
     if( $username=="dv" && $password=="NewEnglandClamChowder"){
         echo "correct";
     } else {
-        echo "incorrect";
+        echo "almost correct";
     }
 
 } else {
